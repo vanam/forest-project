@@ -52,4 +52,18 @@ class UserCreateController extends BaseV1Controller
 		}
 	}
 
+	/**
+	 * @Path("/create-all")
+	 * @Method("POST")
+	 * @Tag(name="request.dto", value="App\Domain\Api\Request\CreateUsersReqDto")
+	 */
+	public function createAll(ApiRequest $request, ApiResponse $response): ApiResponse
+	{
+		/** @var CreateUsersReqDto $dto */
+		$dto = $request->getParsedBody();
+		foreach ($dto->users as $user) {
+			assert($user instanceof CreateUserReqDto);
+		}
+	}
+
 }
