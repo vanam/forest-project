@@ -3,9 +3,10 @@
 namespace App\Domain\Api\Request;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Apitte\Core\Mapping\Request\BasicEntity;
 use Datetime;
 
-final class CreateUserReqDto
+final class CreateUserReqDto extends BasicEntity
 {
 
 	/**
@@ -42,5 +43,14 @@ final class CreateUserReqDto
 	 * @Assert\DateTime
 	 */
 	public $birthDate;
+
+	protected function normalize(string $property, $value): mixed
+	{
+		if ($property == "birthDate") {
+			return new DateTime($value);
+		}
+
+		return parent::normalize($property, $value);
+	}
 
 }
