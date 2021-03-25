@@ -3,6 +3,7 @@
 namespace App\Domain\Api\Request;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Datetime;
 
 final class CreateUserReqDto
 {
@@ -34,5 +35,12 @@ final class CreateUserReqDto
 
 	/** @var string|null */
 	public $password;
+
+	/**
+	 * @var DateTime
+	 * @Assert\NotNull
+	 * @Assert\DateTime
+	 */
+	public $birthDate;
 
 }

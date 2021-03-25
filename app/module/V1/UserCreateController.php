@@ -12,6 +12,7 @@ use App\Domain\Api\Facade\UsersFacade;
 use App\Domain\Api\Request\CreateUserReqDto;
 use Doctrine\DBAL\Exception\DriverException;
 use Nette\Http\IResponse;
+use Datetime;
 
 /**
  * @Path("/users")
@@ -36,6 +37,8 @@ class UserCreateController extends BaseV1Controller
 	{
 		/** @var CreateUserReqDto $dto */
 		$dto = $request->getParsedBody();
+		// assert($dto->birthDate instanceof Datetime);
+		$dto->birthDate->getAge();
 
 		try {
 			$this->usersFacade->create($dto);
