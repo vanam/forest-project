@@ -4,7 +4,7 @@ namespace App\Domain\Api\Request;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Apitte\Core\Mapping\Request\BasicEntity;
-use Datetime;
+use DateTime;
 
 final class CreateUserReqDto extends BasicEntity
 {
@@ -14,27 +14,28 @@ final class CreateUserReqDto extends BasicEntity
 	 * @Assert\NotBlank
 	 * @Assert\Email
 	 */
-	public $email;
+	public string $email;
 
 	/**
 	 * @var string
 	 * @Assert\NotBlank
 	 */
-	public $name;
+	public string $name;
 
 	/**
 	 * @var string
 	 * @Assert\NotBlank
 	 */
-	public $surname;
+	public string $surname;
 
 	/**
 	 * @var string
 	 * @Assert\NotBlank
 	 */
-	public $username;
+	public string $username;
 
 	/** @var string|null */
+	// public ?string $password;
 	public $password;
 
 	/**
@@ -42,15 +43,15 @@ final class CreateUserReqDto extends BasicEntity
 	 * @Assert\NotNull
 	 * @Assert\DateTime
 	 */
-	public $birthDate;
+	public DateTime $birthDate;
 
-	protected function normalize(string $property, $value): mixed
-	{
-		if ($property == "birthDate") {
-			return new DateTime($value);
-		}
+	// protected function normalize(string $property, $value): mixed
+	// {
+	// 	if ($property == "birthDate") {
+	// 		return new DateTime($value);
+	// 	}
 
-		return parent::normalize($property, $value);
-	}
+	// 	return parent::normalize($property, $value);
+	// }
 
 }
