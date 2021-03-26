@@ -5,6 +5,7 @@ namespace App\Module\V1;
 use Apitte\Core\Annotation\Controller\Method;
 use Apitte\Core\Annotation\Controller\Path;
 use Apitte\Core\Annotation\Controller\Tag;
+use Apitte\Core\Annotation\Controller\RequestBody;
 use Apitte\Core\Exception\Api\ServerErrorException;
 use Apitte\Core\Http\ApiRequest;
 use Apitte\Core\Http\ApiResponse;
@@ -32,6 +33,7 @@ class UserCreateController extends BaseV1Controller
 	 * @Path("/create")
 	 * @Method("POST")
 	 * @Tag(name="request.dto", value="App\Domain\Api\Request\CreateUserReqDto")
+	 * @RequestBody(entity="App\Domain\Api\Request\CreateUserReqDto")
 	 */
 	public function create(ApiRequest $request, ApiResponse $response): ApiResponse
 	{
@@ -56,6 +58,7 @@ class UserCreateController extends BaseV1Controller
 	 * @Path("/create-all")
 	 * @Method("POST")
 	 * @Tag(name="request.dto", value="App\Domain\Api\Request\CreateUsersReqDto")
+	 * @RequestBody(entity="App\Domain\Api\Request\CreateUsersReqDto")
 	 */
 	public function createAll(ApiRequest $request, ApiResponse $response): ApiResponse
 	{

@@ -10,7 +10,7 @@ final class CreateUsersReqDto extends BasicEntity
 {
 
 	/**
-	 * @var array<CreateUserReqDto>
+	 * @var CreateUserReqDto[]
 	 */
 	public array $users;
 
